@@ -27,7 +27,7 @@ margin: 0;
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 20%;
+text-align: center;
 }
 *{
     box-sizing: border-box;
@@ -61,11 +61,12 @@ input:focus{
 }
 .input-wrapper{
     display: flex;
+    justify-content: center;
 }
 </style>
 <body>
     <div class="card">
-        <h3>Payoneer Hesabından Teb ATM'den Dolar Çekme Hesaplaması</h3>
+        <h3>Payoneer Kartınızla Teb ATM'den Dolar Çekme Hesaplaması</h3>
         <h2>Hesabınızdaki Parayı Giriniz</h2>
         <div class="input-wrapper"> <input oninput="payoneerMaxCekim(value)" type="number"><span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span></div>
         <div class="result clearfix">
@@ -76,12 +77,13 @@ input:focus{
 <script>
     function payoneerMaxCekim(hesaptakiPara) {
             var komisyon = (a) => { return a * 0.018 + 3.15 };
+            var round = (a) => {return Math.round(a*100)/100};
             var elliKati = hesaptakiPara - (hesaptakiPara % 50);
             var maxCekme = elliKati;
-            while (maxCekme + komisyon(maxCekme) > hesaptakiPara) {
+            while (maxCekme + komisyon(maxCekme) > hesaptakiPara && maxCekme > 0) {
                 maxCekme -= 50;
             }
-            document.querySelector('.result').innerHTML = `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${komisyon(maxCekme)}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${hesaptakiPara - (maxCekme + komisyon(maxCekme))}$</b> kalacak.</p>`;
+            document.querySelector('.result').innerHTML = `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${round(komisyon(maxCekme))}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${round(hesaptakiPara - (maxCekme + komisyon(maxCekme)))}$</b> kalacak.</p>`;
         }
 </script>
 </html>
