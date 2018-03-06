@@ -1,73 +1,107 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Payoneer Para Çekme Hesabı</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65861631-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-65861631-5');
+    </script>
 </head>
 <style>
-body, html {
-width: 100%;
-height: 100%;
-}
-body{
-background-color: darkcyan;
-margin: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-}
-*{
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-input{
-    padding: 8px 5px;
-    font-size: 20px;
-    border-radius: 4px;
-    border: 2px solid #ccc;
-    border-style: outset;
-}
-input:focus{
-    outline: none;
-    border-style: inset;
-}
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        background-color: darkcyan;
+    }
 
-.result{
-    font-size: 5vmin;
-    padding: 5%;
-    background-color: rgba(255,255,255,0.3);
-    margin: 30px 0 0 0;
-    border-radius: 4px;
-    min-height: 150px;
-}
-.input-wrapper{
-    display: flex;
-    justify-content: center;
-}
+    body {
+        background: -webkit-linear-gradient(-70deg, rgba(255, 255, 0, 0.329) 0%, transparent 80%);
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20%;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+        transition: all 1s;
+    }
+
+    input {
+        padding: 8px 5px;
+        font-size: 20px;
+        border-radius: 4px;
+        border: 2px solid #ccc;
+        border-style: outset;
+    }
+
+    input:focus {
+        outline: none;
+        border-style: inset;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .result {
+        font-size: 5vmin;
+        padding: 5%;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin: 30px 0 0 0;
+        border-radius: 4px;
+        min-height: 150px;
+        max-height: auto;
+    }
+
+    .input-wrapper {
+        display: flex;
+    }
 </style>
+
 <body>
     <div class="card">
-        <h3>Payoneer Kartınızla Teb ATM'den Dolar Çekme Hesaplaması</h3>
+        <h3>Payoneer Hesabından Teb ATM'den Dolar Çekme Hesaplaması</h3>
         <h2>Hesabınızdaki Parayı Giriniz</h2>
-        <div class="input-wrapper"> <input oninput="payoneerMaxCekim(value)" type="number"><span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span></div>
-        <div class="result">
+        <div class="input-wrapper">
+            <input oninput="payoneerMaxCekim(value)" type="number">
+            <span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span>
+        </div>
+        <div class="result clearfix">
 
         </div>
     </div>
 </body>
 <script>
     function payoneerMaxCekim(hesaptakiPara) {
-            var komisyon = (a) => { return a * 0.018 + 3.15 };
-            var round = (a) => {return Math.round(a*100)/100};
-            var elliKati = hesaptakiPara - (hesaptakiPara % 50);
-            var maxCekme = elliKati;
-            while (maxCekme + komisyon(maxCekme) > hesaptakiPara && maxCekme > 0) {
-                maxCekme -= 50;
-            }
-            document.querySelector('.result').innerHTML = `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${round(komisyon(maxCekme))}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${round(hesaptakiPara - (maxCekme + komisyon(maxCekme)))}$</b> kalacak.</p>`;
+        var komisyon = (a) => {
+            return a * 0.018 + 3.15
+        };
+        var elliKati = hesaptakiPara - (hesaptakiPara % 50);
+        var maxCekme = elliKati;
+        while (maxCekme + komisyon(maxCekme) > hesaptakiPara) {
+            maxCekme -= 50;
         }
+        document.querySelector('.result').innerHTML =
+            `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${komisyon(maxCekme)}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${hesaptakiPara - (maxCekme + komisyon(maxCekme))}$</b> kalacak.</p>`;
+    }
 </script>
+
 </html>
