@@ -5,14 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Payoneer Para Çekme Hesabı</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65861631-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-65861631-5');
+    </script>
 </head>
 <style>
 body, html {
 width: 100%;
 height: 100%;
+background-color: darkcyan;
 }
 body{
-background-color: darkcyan;
+background: -webkit-linear-gradient(-70deg, rgba(255, 255, 0, 0.329) 0%, transparent 80%); 
 margin: 0;
 display: flex;
 justify-content: center;
@@ -22,6 +32,7 @@ padding: 20%;
 *{
     box-sizing: border-box;
     font-family: sans-serif;
+    transition: all 1s;
 }
 input{
     padding: 8px 5px;
@@ -34,7 +45,11 @@ input:focus{
     outline: none;
     border-style: inset;
 }
-
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 .result{
     font-size: 5vmin;
     padding: 5%;
@@ -42,6 +57,7 @@ input:focus{
     margin: 30px 0 0 0;
     border-radius: 4px;
     min-height: 150px;
+    max-height: auto;
 }
 .input-wrapper{
     display: flex;
@@ -52,7 +68,7 @@ input:focus{
         <h3>Payoneer Hesabından Teb ATM'den Dolar Çekme Hesaplaması</h3>
         <h2>Hesabınızdaki Parayı Giriniz</h2>
         <div class="input-wrapper"> <input oninput="payoneerMaxCekim(value)" type="number"><span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span></div>
-        <div class="result">
+        <div class="result clearfix">
 
         </div>
     </div>
