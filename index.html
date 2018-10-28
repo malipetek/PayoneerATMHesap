@@ -74,6 +74,14 @@
     .input-wrapper {
         display: flex;
     }
+    a{
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+    .bm{
+        padding: 5px;
+        margin: 10px;
+    }
 </style>
 
 <body>
@@ -85,11 +93,23 @@
             <span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span>
         </div>
         <div class="result clearfix">
-
+        </div>
+        <div class="">
+            <small> Aşağıdaki düğmeye bastığınızda açılan sayfayı anasayfaya ya da bookmark'lara ekleyin. Internet olmadığında da açılır. </small>
+            <button class="bm" >
+                <a href="data:text/html;base64,PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJ0ciI+DQoNCjxoZWFkPg0KICAgIDxtZXRhIGNoYXJzZXQ9IlVURi04Ij4NCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+DQogICAgPG1ldGEgaHR0cC1lcXVpdj0iWC1VQS1Db21wYXRpYmxlIiBjb250ZW50PSJpZT1lZGdlIj4NCiAgICA8dGl0bGU+UGF5b25lZXIgUGFyYSDDh2VrbWUgSGVzYWLEsTwvdGl0bGU+DQogICAgPCEtLSBHbG9iYWwgc2l0ZSB0YWcgKGd0YWcuanMpIC0gR29vZ2xlIEFuYWx5dGljcyAtLT4NCiAgICA8c2NyaXB0IGFzeW5jIHNyYz0iaHR0cHM6Ly93d3cuZ29vZ2xldGFnbWFuYWdlci5jb20vZ3RhZy9qcz9pZD1VQS02NTg2MTYzMS01Ij48L3NjcmlwdD4NCiAgICA8c2NyaXB0Pg0KICAgICAgICB3aW5kb3cuZGF0YUxheWVyID0gd2luZG93LmRhdGFMYXllciB8fCBbXTsNCg0KICAgICAgICBmdW5jdGlvbiBndGFnKCkgew0KICAgICAgICAgICAgZGF0YUxheWVyLnB1c2goYXJndW1lbnRzKTsNCiAgICAgICAgfQ0KICAgICAgICBndGFnKCdqcycsIG5ldyBEYXRlKCkpOw0KDQogICAgICAgIGd0YWcoJ2NvbmZpZycsICdVQS02NTg2MTYzMS01Jyk7DQogICAgPC9zY3JpcHQ+DQo8L2hlYWQ+DQo8c3R5bGU+DQogICAgYm9keSwNCiAgICBodG1sIHsNCiAgICAgICAgd2lkdGg6IDEwMCU7DQogICAgICAgIGhlaWdodDogMTAwJTsNCiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogZGFya2N5YW47DQogICAgfQ0KDQogICAgYm9keSB7DQogICAgICAgIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KC03MGRlZywgcmdiYSgyNTUsIDI1NSwgMCwgMC4zMjkpIDAlLCB0cmFuc3BhcmVudCA4MCUpOw0KICAgICAgICBtYXJnaW46IDA7DQogICAgICAgIGRpc3BsYXk6IGZsZXg7DQogICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOw0KICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyOw0KICAgICAgICBwYWRkaW5nOiAyMCU7DQogICAgfQ0KDQogICAgKiB7DQogICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7DQogICAgICAgIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOw0KICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMXM7DQogICAgfQ0KDQogICAgaW5wdXQgew0KICAgICAgICBwYWRkaW5nOiA4cHggNXB4Ow0KICAgICAgICBmb250LXNpemU6IDIwcHg7DQogICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsNCiAgICAgICAgYm9yZGVyOiAycHggc29saWQgI2NjYzsNCiAgICAgICAgYm9yZGVyLXN0eWxlOiBvdXRzZXQ7DQogICAgfQ0KDQogICAgaW5wdXQ6Zm9jdXMgew0KICAgICAgICBvdXRsaW5lOiBub25lOw0KICAgICAgICBib3JkZXItc3R5bGU6IGluc2V0Ow0KICAgIH0NCg0KICAgIC5jbGVhcmZpeDo6YWZ0ZXIgew0KICAgICAgICBjb250ZW50OiAiIjsNCiAgICAgICAgY2xlYXI6IGJvdGg7DQogICAgICAgIGRpc3BsYXk6IHRhYmxlOw0KICAgIH0NCg0KICAgIC5yZXN1bHQgew0KICAgICAgICBmb250LXNpemU6IDV2bWluOw0KICAgICAgICBwYWRkaW5nOiA1JTsNCiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjMpOw0KICAgICAgICBtYXJnaW46IDMwcHggMCAwIDA7DQogICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsNCiAgICAgICAgbWluLWhlaWdodDogMTUwcHg7DQogICAgICAgIG1heC1oZWlnaHQ6IGF1dG87DQogICAgfQ0KDQogICAgLmlucHV0LXdyYXBwZXIgew0KICAgICAgICBkaXNwbGF5OiBmbGV4Ow0KICAgIH0NCjwvc3R5bGU+DQoNCjxib2R5Pg0KICAgIDxkaXYgY2xhc3M9ImNhcmQiPg0KICAgICAgICA8aDM+UGF5b25lZXIgSGVzYWLEsW5kYW4gVGViIEFUTSdkZW4gRG9sYXIgw4dla21lIEhlc2FwbGFtYXPEsTwvaDM+DQogICAgICAgIDxoMj5IZXNhYsSxbsSxemRha2kgUGFyYXnEsSBHaXJpbml6PC9oMj4NCiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtd3JhcHBlciI+DQogICAgICAgICAgICA8aW5wdXQgb25pbnB1dD0icGF5b25lZXJNYXhDZWtpbSh2YWx1ZSkiIHR5cGU9Im51bWJlciI+DQogICAgICAgICAgICA8c3BhbiBzdHlsZT0ibWFyZ2luOiA1cHg7IGZvbnQtc2l6ZTogMjVweDsgZm9udC13ZWlnaHQ6IGJvbGQ7Ij4kPC9zcGFuPg0KICAgICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0icmVzdWx0IGNsZWFyZml4Ij4NCg0KICAgICAgICA8L2Rpdj4NCiAgICA8L2Rpdj4NCjwvYm9keT4NCjxzY3JpcHQ+DQogICAgZnVuY3Rpb24gcGF5b25lZXJNYXhDZWtpbShoZXNhcHRha2lQYXJhKSB7DQogICAgICAgIHZhciBrb21pc3lvbiA9IChhKSA9PiB7DQogICAgICAgICAgICByZXR1cm4gYSAqIDAuMDE4ICsgMy4xNQ0KICAgICAgICB9Ow0KICAgICAgICB2YXIgZWxsaUthdGkgPSBoZXNhcHRha2lQYXJhIC0gKGhlc2FwdGFraVBhcmEgJSA1MCk7DQogICAgICAgIHZhciBtYXhDZWttZSA9IGVsbGlLYXRpOw0KICAgICAgICB3aGlsZSAobWF4Q2VrbWUgKyBrb21pc3lvbihtYXhDZWttZSkgPiBoZXNhcHRha2lQYXJhKSB7DQogICAgICAgICAgICBtYXhDZWttZSAtPSA1MDsNCiAgICAgICAgfQ0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcucmVzdWx0JykuaW5uZXJIVE1MID0NCiAgICAgICAgICAgIGA8cD4gw4dla2ViaWxlY2XEn2luaXogbWF4aW11bSBtaWt0YXIgPGI+ICR7bWF4Q2VrbWV9JDwvYj4nZMSxci48L3A+IDxwPiBLb21pc3lvbiBvbGFyYWsgPGI+JHtrb21pc3lvbihtYXhDZWttZSl9JDwvYj4gw7ZkZXllY2Vrc2luaXouPC9wPiA8cD4gxLDFn2xlbSBzb251Y3VuZGEgaGVzYWLEsW7EsXpkYSA8Yj4ke2hlc2FwdGFraVBhcmEgLSAobWF4Q2VrbWUgKyBrb21pc3lvbihtYXhDZWttZSkpfSQ8L2I+IGthbGFjYWsuPC9wPmA7DQogICAgfQ0KPC9zY3JpcHQ+DQo8L2h0bWw+">
+                    Bookmark sayfası
+                </a>
+            </button>
         </div>
     </div>
 </body>
 <script>
+    document.querySelector('.bm').onclick = function(){
+        var src = this.children[0].getAttribute('href');
+        var t = window.open(src);
+        // t.location= src;
+    }
     function payoneerMaxCekim(hesaptakiPara) {
         var komisyon = (a) => {
             return a * 0.018 + 3.15
@@ -103,5 +123,4 @@
             `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${komisyon(maxCekme)}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${hesaptakiPara - (maxCekme + komisyon(maxCekme))}$</b> kalacak.</p>`;
     }
 </script>
-
 </html>
