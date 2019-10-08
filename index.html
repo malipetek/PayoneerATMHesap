@@ -82,17 +82,42 @@
         padding: 5px;
         margin: 10px;
     }
+    .danger{
+        background-color:rgb(255, 190, 190);
+        padding: 10px;
+        font-size: 20px;
+        color: red;
+        border-radius: 5px;
+        border: 1px solid red;
+        margin: 10px;
+    }
 </style>
 
 <body>
     <div class="card">
         <h3>Payoneer Hesabından Teb ATM'den Dolar Çekme Hesaplaması</h3>
         <h2>Hesabınızdaki Parayı Giriniz</h2>
+        <div class="danger"> 
+            Son para çekme işlemimde 800$ için 34.65$ komisyon kesilmiş.
+            Konuyla ilgili bilgisi olanlar lütfen yeşillendirsin: 
+            <a href="https://malipetek.github.io/contact" target="_blank"> Mesaj </a>
+        </div>
         <div class="input-wrapper">
             <input oninput="payoneerMaxCekim(value)" type="number">
             <span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span>
         </div>
         <div class="result clearfix">
+        </div>
+
+        <hr>
+        <div class="danger">
+        <h2> Yüzdelik komisyonun arttığını varsayan hesaplama( Yanlış olabilir )</h2>
+        <div class="input-wrapper">
+                <input oninput="payoneerMaxCekim2(value)" type="number">
+                <span style="margin: 5px; font-size: 25px; font-weight: bold;">$</span>
+            </div>
+            <div class="result2 clearfix">
+            </div>
         </div>
         <div class="">
             <small> Aşağıdaki düğmeye bastığınızda açılan sayfayı anasayfaya ya da bookmark'lara ekleyin. Internet olmadığında da açılır. </small>
@@ -104,23 +129,41 @@
         </div>
     </div>
 </body>
-<script>
-    document.querySelector('.bm').onclick = function(){
-        var src = this.children[0].getAttribute('href');
-        var t = window.open(src);
-        // t.location= src;
-    }
-    function payoneerMaxCekim(hesaptakiPara) {
-        var komisyon = (a) => {
-            return a * 0.018 + 3.15
-        };
-        var elliKati = hesaptakiPara - (hesaptakiPara % 50);
-        var maxCekme = elliKati;
-        while (maxCekme + komisyon(maxCekme) > hesaptakiPara) {
-            maxCekme -= 50;
+    <script>
+        document.querySelector('.bm').onclick = function(){
+            var src = this.children[0].getAttribute('href');
+            var t = window.open(src);
+            // t.location= src;
         }
-        document.querySelector('.result').innerHTML =
-            `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${komisyon(maxCekme)}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${hesaptakiPara - (maxCekme + komisyon(maxCekme))}$</b> kalacak.</p>`;
-    }
-</script>
+        function payoneerMaxCekim(hesaptakiPara) {
+            var komisyon = (a) => {
+                return a * 0.018 + 3.15
+            };
+            var elliKati = hesaptakiPara - (hesaptakiPara % 50);
+            var maxCekme = elliKati;
+            while (maxCekme + komisyon(maxCekme) > hesaptakiPara) {
+                maxCekme -= 50;
+            }
+            document.querySelector('.result').innerHTML =
+                `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${komisyon(maxCekme)}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${hesaptakiPara - (maxCekme + komisyon(maxCekme))}$</b> kalacak.</p>`;
+        }
+
+        document.querySelector('.bm').onclick = function(){
+            var src = this.children[0].getAttribute('href');
+            var t = window.open(src);
+            // t.location= src;
+        }
+        function payoneerMaxCekim2(hesaptakiPara) {
+            var komisyon = (a) => {
+                return a * 0.039375 + 3.15
+            };
+            var elliKati = hesaptakiPara - (hesaptakiPara % 50);
+            var maxCekme = elliKati;
+            while (maxCekme + komisyon(maxCekme) > hesaptakiPara) {
+                maxCekme -= 50;
+            }
+            document.querySelector('.result2').innerHTML =
+                `<p> Çekebileceğiniz maximum miktar <b> ${maxCekme}$</b>'dır.</p> <p> Komisyon olarak <b>${komisyon(maxCekme)}$</b> ödeyeceksiniz.</p> <p> İşlem sonucunda hesabınızda <b>${hesaptakiPara - (maxCekme + komisyon(maxCekme))}$</b> kalacak.</p>`;
+        }
+    </script>
 </html>
